@@ -12,5 +12,14 @@ export const removeBook = createAction(
 
 export const retrievedBookList = createAction(
   '[Book List] Retrieve Book List',
+)
+
+export const retrievedBookListSuccess = createAction(
+  '[Book List] Retrieved Book List Success',
   props<{Book}>()
+);
+
+export const retrievedBookFail = createAction(
+  '[Book List] Retrieved Book Fail',
+  props<{error:any}>()
 )

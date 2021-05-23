@@ -9,7 +9,8 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment
-
+import { EffectsModule } from '@ngrx/effects';
+import { BookEffects } from './state/book.effect';
 @NgModule({
   imports: [
     BrowserModule,
@@ -18,6 +19,7 @@ import { environment } from '../environments/environment'; // Angular CLI enviro
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    EffectsModule.forRoot([BookEffects]),
     HttpClientModule
   ],
   declarations: [

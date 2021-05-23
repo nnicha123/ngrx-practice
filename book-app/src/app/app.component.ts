@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import {Store,select} from '@ngrx/store';
 import {selectBookCollection, selectBooks} from './state/book.selectors';
 import {retrievedBookList,addBook,removeBook} from './state/book.actions';
-import {BooksService} from './book-list/books.service';
-import { Book } from './book-list/books.model';
 
 @Component({
   selector: 'app-root',
@@ -23,11 +21,10 @@ export class AppComponent {
   }
 
   constructor(
-    private bookService:BooksService,
     private store:Store
   ){}
 
   ngOnInit(){
-    this.bookService.getBooks().subscribe((Book:Book[]) => this.store.dispatch(retrievedBookList({Book})))
+    this.store.dispatch(retrievedBookList());
   }
 }
